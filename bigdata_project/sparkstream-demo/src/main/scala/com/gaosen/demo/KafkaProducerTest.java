@@ -40,14 +40,15 @@ public class KafkaProducerTest implements Runnable{
                 producer.send(new ProducerRecord<String, String>(topic,"Message",messageStr));
 
                 //生产了100条就打印
-                if(messageNo%100 == 0){
+                if(messageNo%10 == 0){
                     System.out.println("发送的消息：" + messageStr);
                 }
 
                 //生产了1000条就退出
-                if(messageNo%1000 == 0){
+                if(messageNo%100 == 0){
                     System.out.println("发送的消息：" + messageStr);
-                    break;
+//                    break;
+                    Thread.sleep(2000);
                 }
                 messageNo++;
             }
